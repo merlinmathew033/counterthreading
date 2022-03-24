@@ -45,7 +45,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	long m_iCounter;
-	int x, y, angle, a, b, p, q;
+	int x, y, angle, a, b, p, q ,c,d ;
 	float t;
 	afx_msg void OnControlsPause();
 	afx_msg void OnControlsResume();

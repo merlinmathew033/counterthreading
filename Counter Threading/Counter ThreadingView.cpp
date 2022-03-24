@@ -37,7 +37,7 @@ CCounterThreadingView::CCounterThreadingView() noexcept
 
 {
 m_iCounter = 0;
-angle = 0, a = 200, b = 190, p = 296, q = 240;
+angle = 0, a = 200, b = 190, p = 296, q = 240 ,c=392, d=290;
 t = 3.14 / 180.0;
 x = 350, y = 350;
 }
@@ -61,25 +61,36 @@ m_iCounter++;
 CString strCounter;
 strCounter.Format(L"The Counter is %d", m_iCounter);
 pDC->TextOut(700, 100, strCounter);
-// largest orbit
+
+// first planet
+CPen greenpen;
+greenpen.CreatePen(PS_SOLID, 5, RGB(0, 100, 0));
+CPen* pOldpen1 = pDC->SelectObject(&greenpen);
+pDC->Ellipse(-90, 20, 700, 600);
+pDC->SelectObject(pOldpen1);
+
+
+// second planet
 CPen bluepen;
 bluepen.CreatePen(PS_SOLID, 5, RGB(0, 0, 225));
-CPen* pOldpen1 = pDC->SelectObject(&bluepen);
+CPen* pOldpen2 = pDC->SelectObject(&bluepen);
 pDC->Ellipse(10, 70, 600, 550);
-pDC->SelectObject(pOldpen1);
-//Smallest orbit
+pDC->SelectObject(pOldpen2);
+
+//third planet
 CPen redpen;
 redpen.CreatePen(PS_SOLID, 5, RGB(255, 0, 0));
 CPen* pOldpen = pDC->SelectObject(&redpen);
 pDC->Ellipse(100, 120, 500, 500);
 pDC->SelectObject(pOldpen);
+
 //sun in red color
 CBrush brushorange(RGB(255, 69, 0));
 CBrush* pOldBrush = pDC->SelectObject(&brushorange);
 pDC->Ellipse(250, 250, 350, 350);
 pDC->SelectObject(pOldBrush);
-// smallest orbit rotation
 
+// smallest orbit rotation
 for (int i = 0; i < m_iCounter; i++)
 {
 angle = i;
@@ -95,8 +106,26 @@ pDC->Ellipse(300 + x + 15, 310 + y + 20, 300 + x - 20, 310 + y - 20);
 Invalidate();
 pDC->SelectObject(pOldBrush);
 }
-// largest orbit rotation
 
+// first orbit rotation
+for (int i = 0; i < m_iCounter; i++)
+{
+	angle = i;
+	x = c * cos(t * angle);
+
+	y = d* sin(t * angle);
+
+}
+for (int i = 0; i < m_iCounter; i++)
+{
+	CBrush brushblack(RGB(0, 0, 0));
+	CBrush* pOldBrush = pDC->SelectObject(&brushblack);
+	pDC->Ellipse(310 + x + 25, 310 + y + 20, 310 + x - 20, 310 + y - 20);
+	Invalidate();
+	pDC->SelectObject(pOldBrush);
+}
+
+// second orbit rotation
 for (int i = 0; i < m_iCounter; i++)
 {
 angle = i;
