@@ -85,17 +85,14 @@
 #define IDS_EXPLORER                    305
 #define IDS_EDIT_MENU                   306
 #define ID_Menu                         32771
-#define ID_THREAD_START                 32772
 #define ID_THREAD_PAUSE                 32773
 #define ID_THREAD_RESUME                32774
 #define ID_Menu32775                    32775
 #define ID_Menu32776                    32776
 #define ID_CONTROLS_PAUSE               32777
 #define ID_CONTROLS_RESUME              32778
-#define ID_CONTROLS_START               32779
 #define ID_CONTROLS_PAUSE32780          32780
 #define ID_CONTROLS_RESUME32781         32781
-#define ID_CONTROLS_STARTCYCLE          32782
 
 // Next default values for new objects
 // 
