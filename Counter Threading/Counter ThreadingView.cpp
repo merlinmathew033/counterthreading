@@ -56,9 +56,9 @@ void CCounterThreadingView::OnDraw(CDC* pDC)
 CCounterThreadingDoc* pDoc = GetDocument();
 ASSERT_VALID(pDoc);
 m_iCounter++;
-CString strCounter;
-strCounter.Format(L"The Counter is %d", m_iCounter);
-pDC->TextOut(700, 100, strCounter);
+//CString strCounter;
+//strCounter.Format(L"The Counter is %d", m_iCounter);
+//pDC->TextOut(700, 100, strCounter);
 
 // first planet
 CPen greenpen;
