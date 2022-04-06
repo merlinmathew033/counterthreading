@@ -28,9 +28,7 @@ BEGIN_MESSAGE_MAP(CCounterThreadingView, CView)
 	ON_WM_RBUTTONUP()
 	ON_COMMAND(ID_CONTROLS_PAUSE, &CCounterThreadingView::OnControlsPause)
 	ON_COMMAND(ID_CONTROLS_RESUME, &CCounterThreadingView::OnControlsResume)
-	ON_COMMAND(ID_CONTROLS_START, &CCounterThreadingView::OnControlsStart)
-	ON_COMMAND(ID_CONTROLS_STARTCYCLE, &CCounterThreadingView::OnControlsStartcycle)
-END_MESSAGE_MAP()
+	END_MESSAGE_MAP()
 
 // CCounterThreadingView construction/destruction
 CCounterThreadingView::CCounterThreadingView() noexcept
@@ -111,9 +109,9 @@ pDC->SelectObject(pOldBrush);
 for (int i = 0; i < m_iCounter; i++)
 {
 	angle = i;
-	x = c * cos(t * angle);
+	x = c * cos(t*angle);
 
-	y = d* sin(t * angle);
+	y = d* sin(t*angle);
 
 }
 for (int i = 0; i < m_iCounter; i++)
@@ -198,20 +196,10 @@ CCounterThreadingDoc* CCounterThreadingView::GetDocument() const // non-debug ve
 #endif //_DEBUG
 
  void CCounterThreadingView::OnControlsPause()
-
 {
 	pThread->SuspendThread();
 }
 void CCounterThreadingView::OnControlsResume()
-
 {
-	pThread->SuspendThread();
-}
-void CCounterThreadingView::OnControlsStart()
-{
-	pThread->SuspendThread();
-}
-void CCounterThreadingView::OnControlsStartcycle()
-{
-	pThread->SuspendThread();
+	pThread->ResumeThread();
 }

@@ -49,9 +49,7 @@ public:
 	float t;
 	afx_msg void OnControlsPause();
 	afx_msg void OnControlsResume();
-	afx_msg void OnControlsStart();
-	afx_msg void OnControlsStartcycle();
-};
+	};
 
 #ifndef _DEBUG  // debug version in Counter ThreadingView.cpp
 inline CCounterThreadingDoc* CCounterThreadingView::GetDocument() const
